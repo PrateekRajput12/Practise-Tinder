@@ -1,8 +1,13 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { BASE_URL } from '../utils/constant'
-
+import { addUser } from '../utils/userSlice'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router'
 const Login = () => {
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const [emailId, setemailId] = useState("kaju@gmail.com")
     const [password, setpassword] = useState("Kaju@123")
@@ -14,7 +19,8 @@ const Login = () => {
                 emailId
             })
             console.log("res", res);
-
+            dispatch(addUser(res.data))
+            return navigate("/feed")
         } catch (e) {
             console.log("Error in Logining ", e);
         }

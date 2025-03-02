@@ -25,3 +25,7 @@
    - Login Form created 
    - use -> email , password , setemailId , setpassword and handleLogin function 
    - Successfully created
+   - react-redux installed and setup
+   - used naviagte,dispatch,slice,useSelectore,configureStore
+   - add real img in navbar and welcome with name 
+   - navigate to /feed page
