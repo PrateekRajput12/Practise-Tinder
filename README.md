@@ -18,3 +18,10 @@
   - routes setup 
   - Nav and Footer component using daisy uui
   - Use of outlet and how to make child element
+
+  # Part 2
+ - Login Page 
+   - Login Page Done
+   - Login Form created 
+   - use -> email , password , setemailId , setpassword and handleLogin function 
+   - Successfully created

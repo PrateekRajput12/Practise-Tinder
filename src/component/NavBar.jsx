@@ -2,7 +2,7 @@ import React from 'react'
 
 const NavBar = () => {
     return (
-        <div className="navbar bg-base-100 px-[2rem]">
+        <div className="navbar bg-base-200 px-[2rem]">
             <div className="flex-1">
                 <a className="btn btn-ghost text-xl">daisyUI</a>
             </div>

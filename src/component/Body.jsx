@@ -8,7 +8,7 @@ const Body = () => {
         <div>
             <NavBar />
             <Outlet></Outlet>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }
