@@ -8,20 +8,24 @@ const Login = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
+    const [error, seterror] = useState("")
     const [emailId, setemailId] = useState("kaju@gmail.com")
     const [password, setpassword] = useState("Kaju@123")
     const handleLogin = async () => {
 
         try {
             const res = await axios.post(BASE_URL + '/login', {
-                password,
                 emailId
+                , password
+
+            }, {
+                withCredentials: true
             })
             console.log("res", res);
             dispatch(addUser(res.data))
             return navigate("/feed")
         } catch (e) {
+            seterror(e?.response?.data)
             console.log("Error in Logining ", e);
         }
     }
@@ -46,6 +50,7 @@ const Login = () => {
                             </form>
                         </fieldset>
                     </div>
+                    <p className='text-start text-red-500'>{error}</p>
                     <div className="card-actions justify-end">
                         <button className="btn btn-primary" onClick={handleLogin} >Login</button>
                     </div>

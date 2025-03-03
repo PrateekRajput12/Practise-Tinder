@@ -1,15 +1,30 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import axios from 'axios'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router'
+import { BASE_URL } from '../utils/constant'
+import { removeUser } from '../utils/userSlice'
 
 const NavBar = () => {
-
     const user = useSelector(store => store.user)
     // console.log(user);
-
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const handleLogout = async () => {
+        try {
+            const user = await axios.post(BASE_URL + '/logout', {},
+                { withCredentials: true }
+            )
+            dispatch(removeUser())
+            return navigate("/login")
+        } catch (error) {
+            console.log("error In logout", error);
+        }
+    }
     return (
         <div className="navbar bg-base-200 px-[2rem]">
             <div className="flex-1">
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <Link to={'/'} className="btn btn-ghost text-xl">NamasteTinder💀</Link>
             </div>
             {user && <div className="flex justify-between items-center gap-5">
 
@@ -31,13 +46,13 @@ const NavBar = () => {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         <li>
-                            <a className="justify-between">
+                            <Link to={'/profile/view'} className="justify-between">
                                 Profile
                                 <span className="badge">New</span>
-                            </a>
+                            </Link>
                         </li>
                         <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
+                        <li onClick={handleLogout}><a>Logout</a></li>
                     </ul>
                 </div>
             </div>}

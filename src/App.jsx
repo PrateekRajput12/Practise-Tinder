@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div>
       <Provider store={appStore}>
-        <BrowserRouter>
+        <BrowserRouter basename='/'>
           <Routes>
             <Route path='/' element={<Body />} >
               <Route path='/login' element={<Login></Login>} />
