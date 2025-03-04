@@ -38,3 +38,17 @@
 
   - Logout Feature
    - Added logout feature using dispatch navigate and selector 
+
+  - Feed 
+   - added feed using feed api 
+   - in which showing profile using index till now
+   - currently we can just see cant do any other thing
+   
+   
+  - Profile and Edit Profile Feature
+   - create a UserCard which is being displayed in feed 
+   - and in edit profile card is being displayed 
+   - on other hand we can edit it while 
+   - data chnging at same time 
+
+   
